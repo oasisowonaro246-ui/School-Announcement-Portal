@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | School Announcement Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+header{
+    background:#003366;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+}
+
+header h2{
+    font-size:28px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:gold;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+.contact-box{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.contact-box h1{
+    color:#003366;
+    margin-bottom:20px;
+}
+
+.info{
+    margin-bottom:25px;
+    line-height:1.8;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+textarea{
+    resize:none;
+    height:140px;
+}
+
+button{
+    margin-top:20px;
+    background:#003366;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+footer{
+    margin-top:40px;
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+header{
+    flex-direction:column;
+    text-align:center;
+}
+nav{
+    margin-top:10px;
+}
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h2>📞 Contact Us</h2>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="student.html">Student</a>
+<a href="teacher.html">Teacher</a>
+<a href="announcement.html">Announcements</a>
+<a href="login.html">Logout</a>
+</nav>
+
+</header>
+
+<div class="container">
+
+<div class="contact-box">
+
+<h1>Get in Touch</h1>
+
+<div class="info">
+<p><strong>🏫 School:</strong> Deeper Life High School High School</p>
+<p><strong>📍 Address:</strong> Okutukutu, Bayelsa</p>
+<p><strong>📞 Phone:</strong> +234 800 000 0000</p>
+<p><strong>📧 Email:</strong> info@deeperlifeschool.edu</p>
+</div>
+
+<form>
+
+<label>Full Name</label>
+<input type="text" required>
+
+<label>Email Address</label>
+<input type="email" required>
+
+<label>Message</label>
+<textarea required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 School Announcement Portal</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Announcements | School Announcement Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+/* Header */
+
+header{
+    background:#003366;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h2{
+    font-size:28px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:gold;
+}
+
+/* Main */
+
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+.container h1{
+    color:#003366;
+    margin-bottom:20px;
+}
+
+.announcement{
+    background:white;
+    padding:20px;
+    border-left:6px solid #003366;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,.1);
+    margin-bottom:20px;
+}
+
+.announcement h2{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+.date{
+    color:gray;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+footer{
+    margin-top:40px;
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+    text-align:center;
+}
+
+nav{
+    margin-top:10px;
+}
+
+nav a{
+    display:block;
+    margin:8px 0;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h2>📢 School Announcements</h2>
+
+<nav>
+<a href="/">Home</a>
+<a href="/student">Student</a>
+<a href="/teacher">Teacher</a>
+<a href="/contact">Contact</a>
+<a href="/login">Logout</a>
+</nav>
+
+</header>
+
+<div class="container">
+
+<h1>Latest Announcements</h1>
+
+{% if announcements %}
+
+    {% for announcement in announcements %}
+
+    <div class="announcement">
+
+        <h2>{{ announcement["title"] }}</h2>
+
+        <p class="date">
+            Posted: {{ announcement["created_at"] }}
+        </p>
+
+        <p>{{ announcement["message"] }}</p>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="announcement">
+
+<h2>No Announcements Yet</h2>
+
+<p>No announcements have been posted.</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<footer>
+
+<p>
+&copy; 2026 School Announcement Portal
+</p>
+
+</footer>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>

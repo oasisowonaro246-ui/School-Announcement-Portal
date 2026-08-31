@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard | School Announcement Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+/* Navigation */
+header{
+    background:#003366;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h2{
+    font-size:26px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:gold;
+}
+
+/* Dashboard */
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+.welcome{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    margin-bottom:30px;
+}
+
+.welcome h1{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+/* Cards */
+.grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+}
+
+.section{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.section h2{
+    color:#003366;
+    margin-bottom:20px;
+}
+
+.card{
+    border-left:5px solid #003366;
+    background:#f8f9fa;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateX(5px);
+}
+
+.card h3{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#555;
+    line-height:1.5;
+}
+
+/* Events */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#003366;
+    color:white;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+/* Profile */
+.profile{
+    text-align:center;
+}
+
+.profile img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-bottom:15px;
+}
+
+.profile h3{
+    color:#003366;
+}
+
+.profile p{
+    margin:8px 0;
+}
+
+/* Buttons */
+.buttons{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.buttons a{
+    background:#003366;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:8px;
+    text-align:center;
+    transition:.3s;
+}
+
+.buttons a:hover{
+    background:#0056b3;
+}
+
+/* Responsive Table */
+.table-container{
+    overflow-x:auto;
+}
+
+/* Footer */
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* Mobile */
+@media(max-width:900px){
+
+.grid{
+    grid-template-columns:1fr;
+}
+
+header{
+    flex-direction:column;
+    gap:10px;
+}
+
+nav{
+    text-align:center;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h2>🏫 School Portal</h2>
+
+<nav>
+<a href="/">Home</a>
+<a href="/announcement">Announcements</a>
+<a href="/contact">Contact</a>
+<a href="/login">Logout</a>
+</nav>
+
+</header>
+
+<div class="container">
+
+<div class="welcome">
+<h1>Welcome, Student 👋</h1>
+<p>Stay updated with the latest announcements, school activities, and important events.</p>
+</div>
+
+<div class="grid">
+
+<!-- Left Side -->
+<div>
+
+<div class="section">
+
+<h2>📢 Latest Announcements</h2>
+
+{% if announcements %}
+
+    {% for announcement in announcements %}
+
+    <div class="card">
+
+        <h3>{{ announcement["title"] }}</h3>
+
+        <p>{{ announcement["message"] }}</p>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="card">
+
+<h3>No Announcements</h3>
+
+<p>No announcements have been posted yet.</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<div class="card">
+<h3>Library Notice</h3>
+<p>All borrowed books should be returned before Friday to avoid penalties.</p>
+</div>
+
+</div>
+
+<br>
+
+<div class="section">
+
+<h2>📅 Upcoming Events</h2>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Date</th>
+<th>Event</th>
+</tr>
+
+<tr>
+<td>15 Aug</td>
+<td>Science Fair</td>
+</tr>
+
+<tr>
+<td>10 Sep</td>
+<td>Mid-Term Exams</td>
+</tr>
+
+<tr>
+<td>20 Oct</td>
+<td>Graduation Ceremony</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Right Side -->
+<div>
+
+<div class="section profile">
+
+<img src="https://via.placeholder.com/120" alt="Student">
+
+<h3>John Doe</h3>
+
+<p><strong>ID:</strong> STD1024</p>
+
+<p><strong>Class:</strong> SS2</p>
+
+<p><strong>Email:</strong> student@email.com</p>
+
+<div class="buttons">
+
+<a href="/announcement">📢 View Announcements</a>
+
+<a href="/contact">📞 Contact School</a>
+
+<a href="/">🏠 Home</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+&copy; 2026 School Announcement Portal
+<br>
+Student Dashboard
+</p>
+
+</footer>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
